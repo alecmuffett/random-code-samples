@@ -36,14 +36,14 @@ def test(x):
 for i in range(0, items):
     test('bad' if ((i % badness_rate) == 0) else 'good')
 
-print 'tested %s%d items%s where %s1 in %d are bad%s, with %s%.5f%% test accuracy%s' % (
-    Ansi.MAGENTA, items, Ansi.END,
-    Ansi.YELLOW, badness_rate, Ansi.END,
+print 'tested %s%s items%s where %s1 in %s are bad%s, with %s%.5f%% test accuracy%s' % (
+    Ansi.MAGENTA, format(items, ','), Ansi.END,
+    Ansi.YELLOW, format(badness_rate, ','), Ansi.END,
     Ansi.CYAN, test_accuracy_pct, Ansi.END,
 )
 
-print '%s: %s%d%s' % ('good items, correctly identified', Ansi.GREEN, results['accurate:good'], Ansi.END)
-print '%s: %s%d%s' % ('bad items, correctly identified', Ansi.GREEN, results['accurate:bad'], Ansi.END)
-print '%s: %s%d%s' % ('good items, false positive as bad', Ansi.RED, results['inaccurate:good'], Ansi.END)
-print '%s: %s%d%s' % ('bad items, false negative as good', Ansi.RED, results['inaccurate:bad'], Ansi.END)
+print '%s: %s%s%s' % ('good items, correctly identified', Ansi.GREEN, format(results['accurate:good'], ','), Ansi.END)
+print '%s: %s%s%s' % ('bad items, correctly identified', Ansi.GREEN, format(results['accurate:bad'], ','), Ansi.END)
+print '%s: %s%s%s' % ('good items, false positive as bad', Ansi.RED, format(results['inaccurate:good'], ','), Ansi.END)
+print '%s: %s%s%s' % ('bad items, false negative as good', Ansi.RED, format(results['inaccurate:bad'], ','), Ansi.END)
 print ''
