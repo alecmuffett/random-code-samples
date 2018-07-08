@@ -5,7 +5,7 @@ class Ansi:
     END     =  '\033[0m'
     BOLD    =  '\033[1m'
     UL      =  '\033[4m'
-    BLACK     =  '\033[90m'
+    BLACK   =  '\033[90m'
     RED     =  '\033[91m'
     GREEN   =  '\033[92m'
     YELLOW  =  '\033[93m'
@@ -36,7 +36,7 @@ def test(x):
 for i in range(0, items):
     test('bad' if ((i % badness_rate) == 0) else 'good')
 
-print 'tested %s%d items%s where %s1 in %d are bad%s, with %s%.3f%% test accuracy%s' % (
+print 'tested %s%d items%s where %s1 in %d are bad%s, with %s%.5f%% test accuracy%s' % (
     Ansi.MAGENTA, items, Ansi.END,
     Ansi.YELLOW, badness_rate, Ansi.END,
     Ansi.CYAN, test_accuracy_pct, Ansi.END,
