@@ -42,8 +42,15 @@ print 'tested %s%d items%s where %s1 in %d are bad%s, with %s%.5f%% test accurac
     Ansi.CYAN, test_accuracy_pct, Ansi.END,
 )
 
-print '%s: %s%d%s' % ('good items, correctly identified', Ansi.GREEN, results['accurate:good'], Ansi.END)
-print '%s: %s%d%s' % ('bad items, correctly identified', Ansi.GREEN, results['accurate:bad'], Ansi.END)
-print '%s: %s%d%s' % ('good items, false positive as bad', Ansi.RED, results['inaccurate:good'], Ansi.END)
-print '%s: %s%d%s' % ('bad items, false negative as good', Ansi.RED, results['inaccurate:bad'], Ansi.END)
-print ''
+tn = results['accurate:good']
+tp = results['accurate:bad']
+fp = results['inaccurate:good']
+fn = results['inaccurate:bad']
+p = float(tp)/(tp+fp)
+r = float(tp)/(tp+fn)
+f1 = 2 * ((p*r)/(p+r))
+print '%s: %s%d%s' % ('good items, correctly identified', Ansi.GREEN, tn, Ansi.END)
+print '%s: %s%d%s' % ('bad items, correctly identified', Ansi.GREEN, tp, Ansi.END)
+print '%s: %s%d%s' % ('good items, false positive as bad', Ansi.RED, fp, Ansi.END)
+print '%s: %s%d%s' % ('bad items, false negative as good', Ansi.RED, fn, Ansi.END)
+print 'p={0} r={1} f1={2}'.format(p, r, f1)
