@@ -48,9 +48,10 @@ fp = results['inaccurate:good']
 fn = results['inaccurate:bad']
 p = float(tp)/(tp+fp)
 r = float(tp)/(tp+fn)
+a = float(tp+tn)/items
 f1 = 2 * ((p*r)/(p+r))
 print '%s: %s%d%s' % ('good items, correctly identified', Ansi.GREEN, tn, Ansi.END)
 print '%s: %s%d%s' % ('bad items, correctly identified', Ansi.GREEN, tp, Ansi.END)
 print '%s: %s%d%s' % ('good items, false positive as bad', Ansi.RED, fp, Ansi.END)
 print '%s: %s%d%s' % ('bad items, false negative as good', Ansi.RED, fn, Ansi.END)
-print 'p={0} r={1} f1={2}'.format(p, r, f1)
+print 'p={0} r={1} a={2} f1={3}'.format(p, r, a, f1)
